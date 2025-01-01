@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController characterController;
     private Vector3 velocity;
- 
 
     private void Awake()
     {
@@ -42,14 +41,12 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleJump();
-       
     }
 
     private void HandleMovement()
     {
         Vector2 moveInput = move.ReadValue<Vector2>();
         float currentSpeed = speed;
-
         Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
         characterController.Move(moveDirection * currentSpeed * Time.deltaTime);
     }
@@ -60,10 +57,7 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = jumpForce;
         }
-
         velocity.y += Physics.gravity.y * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
     }
-
-    
 }
